@@ -61,7 +61,7 @@ def generate_character_summary(char):
     total_cost = 0
     for idx,(trait,name) in enumerate(char.traits.items()):
         exp_cost = traitlib.get_cost(name)
-        yield "trait %d = %s [exp=%d]" % (idx, name, exp_cost)
+        yield "%d] %s [exp=%d]" % (idx, name, exp_cost)
         total_cost += exp_cost
     yield ""
     yield "-------------------------------"

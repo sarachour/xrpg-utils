@@ -7,50 +7,50 @@
 ▢: unallocated
 ===============
 
-name: Tammy Atwell
+name: Christopher Fisher
 
-trait 0 = Greed [exp=-2]
-trait 1 = Active Military [exp=2]
-trait 2 = Psychological Problems [exp=-3]
+0] Veteran [exp=2]
+1] Socially Disastrous [exp=-3]
+2] Doctor [exp=4]
 
 -------------------------------
 is a novice? no
-total experience: 10 - (-3)  = 13
+total experience: 45 - (3)  = 42
 -------------------------------
-=== INTELLIGENCES [exp=3] ===
-logic		 ▣▣ ▣▣▣ ▢▢▢
-spatl		 ▣▣ ◈▢▢ ▢▢▢ 		[exp=3]
-ling		 ▣▣ ▣▣▣ ▢▢▢
-kinth		 ▣▣ ▣▣▣ ▢▢▢
-music		 ▣▣ ▣▢▢ ▢▢▢
-inter		 ▣▣ ▢▢▢ ▢▢▢
-intra		 ▣▣ ▣▣▣ ▣▢▢
-======== SKILLS [exp=10] =========
------- [2] CHAR -----
+=== INTELLIGENCES [exp=31] ===
+logic		 ▣▣ ◈◈▢ ▢▢▢ 		[exp=7]
+spatl		 ▣▣ ▣▣◈ ▢▢▢ 		[exp=5]
+ling		 ▣▣ ▣▣▣ ▣▢▢
+kinth		 ▣▣ ▣▣▣ ▣▢▢
+music		 ▣▣ ◈◈◈ ▢▢▢ 		[exp=12]
+inter		 ▣▣ ▣▣▣ ▣▢▢
+intra		 ▣▣ ◈◈▢ ▢▢▢ 		[exp=7]
+======== SKILLS [exp=11] =========
+------ [5] CHAR -----
 decpt		▢▢▢▢ ▢▢▢▢
-empth		▢▢▢▢ ▢▢▢▢
-persu		▣▣▢▢ ▢▢▢▢
+empth		▣◈▢▢ ▢▢▢▢ 		[exp=1]
+persu		▣▣▣▣ ▢▢▢▢
 ------ [6] EDUC -----
 acadm		▣▢▢▢ ▢▢▢▢
-arts 		▣▣▣▣ ▢▢▢▢
-mystr		▣▢▢▢ ▢▢▢▢
------- [7] FGHT -----
-bspd 		▣▣▣▣ ▢▢▢▢
-brawl		▣▣▣▢ ▢▢▢▢
-guns 		▢▢▢▢ ▢▢▢▢
------- [1] PHYS -----
-agilt		▢▢▢▢ ▢▢▢▢
-endur		▣●●▢ ▢▢▢▢
-muscl		●●▢▢ ▢▢▢▢
------- [3] TECH -----
-hardw		▢▢▢▢ ▢▢▢▢
-pilot		◈▢▢▢ ▢▢▢▢ 		[exp=1]
-softw		▣▣▣▢ ▢▢▢▢
------- [5] WILL -----
-grit 		◈▢▢▢ ▢▢▢▢ 		[exp=1]
+arts 		▣◈▢▢ ▢▢▢▢ 		[exp=1]
+mystr		▣▣▣▣ ◈▢▢▢ 		[exp=2]
+------ [3] FGHT -----
+bspd 		▣▣▣▢ ▢▢▢▢
+brawl		▢▢▢▢ ▢▢▢▢
+guns 		◈▢▢▢ ▢▢▢▢ 		[exp=1]
+------ [4] PHYS -----
+agilt		▣▢▢▢ ▢▢▢▢
+endur		▣▢▢▢ ▢▢▢▢
+muscl		▣▣▢▢ ▢▢▢▢
+------ [2] TECH -----
+hardw		▣▢▢▢ ▢▢▢▢
+pilot		▢▢▢▢ ▢▢▢▢
+softw		▣●▢▢ ▢▢▢▢
+------ [7] WILL -----
+grit 		▣▢▢▢ ▢▢▢▢
 intim		▣▣▣▣ ▢▢▢▢
-psych		▣◈▢▢ ▢▢▢▢ 		[exp=1]
------- [4] WITS -----
-drive		▣▣◈▢ ▢▢▢▢ 		[exp=1]
-percp		▣▣●● ◈◈▢▢ 		[exp=5]
-stlth		●●●● ◈▢▢▢ 		[exp=1]
+psych		▣▣▢▢ ▢▢▢▢
+------ [1] WITS -----
+drive		●●●● ◈◈▢▢ 		[exp=5]
+percp		▣●●▢ ▢▢▢▢
+stlth		●●●◈ ▢▢▢▢ 		[exp=1]
