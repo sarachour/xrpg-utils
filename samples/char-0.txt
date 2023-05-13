@@ -7,50 +7,50 @@
 ▢: unallocated
 ===============
 
-name: Louise Sullivan
+name: Tammy Atwell
 
-trait 0 = Annoyingly Cheerful [exp=-1]
-trait 1 = Illegal Immigrant [exp=-3]
-trait 2 = Burned Spy [exp=2]
+trait 0 = Greed [exp=-2]
+trait 1 = Active Military [exp=2]
+trait 2 = Psychological Problems [exp=-3]
 
 -------------------------------
 is a novice? no
-total experience: 10 - (-2)  = 12
+total experience: 10 - (-3)  = 13
 -------------------------------
-=== INTELLIGENCES [exp=6] ===
-logic		 ▣▣ ◈▢▢ ▢▢▢ 		[exp=3]
-spatl		 ▣▣ ▣▣▣ ▢▢▢
-ling		 ▣▣ ▣▣▢ ▢▢▢
-kinth		 ▣▣ ▣▣▢ ▢▢▢
-music		 ▣▣ ◈▢▢ ▢▢▢ 		[exp=3]
-inter		 ▣▣ ▣▣▣ ▣▢▢
-intra		 ▣▣ ▣▣▣ ▢▢▢
-======== SKILLS [exp=6] =========
------- [1] CHAR -----
-decpt		▣◈▢▢ ▢▢▢▢ 		[exp=1]
-empth		●●▢▢ ▢▢▢▢
-persu		●●●▢ ▢▢▢▢
------- [3] EDUC -----
-acadm		▣●●● ▢▢▢▢
-arts 		▣▣◈▢ ▢▢▢▢ 		[exp=1]
-mystr		◈▢▢▢ ▢▢▢▢ 		[exp=1]
------- [5] FGHT -----
-bspd 		▣▣●● ●▢▢▢
-brawl		●●●● ▢▢▢▢
-guns 		▣▣▣● ●▢▢▢
------- [7] PHYS -----
-agilt		▣▣▢▢ ▢▢▢▢
-endur		▣▣●● ▢▢▢▢
-muscl		▣▣▣● ▢▢▢▢
------- [4] TECH -----
-hardw		◈▢▢▢ ▢▢▢▢ 		[exp=1]
-pilot		▣▢▢▢ ▢▢▢▢
-softw		▣▣▣● ●▢▢▢
------- [2] WILL -----
-grit 		▣▣◈▢ ▢▢▢▢ 		[exp=1]
-intim		●●●● ▢▢▢▢
-psych		●◈▢▢ ▢▢▢▢ 		[exp=1]
------- [6] WITS -----
-drive		▣▣▣● ▢▢▢▢
-percp		▣▣▢▢ ▢▢▢▢
-stlth		▣●●▢ ▢▢▢▢
+=== INTELLIGENCES [exp=3] ===
+logic		 ▣▣ ▣▣▣ ▢▢▢
+spatl		 ▣▣ ◈▢▢ ▢▢▢ 		[exp=3]
+ling		 ▣▣ ▣▣▣ ▢▢▢
+kinth		 ▣▣ ▣▣▣ ▢▢▢
+music		 ▣▣ ▣▢▢ ▢▢▢
+inter		 ▣▣ ▢▢▢ ▢▢▢
+intra		 ▣▣ ▣▣▣ ▣▢▢
+======== SKILLS [exp=10] =========
+------ [2] CHAR -----
+decpt		▢▢▢▢ ▢▢▢▢
+empth		▢▢▢▢ ▢▢▢▢
+persu		▣▣▢▢ ▢▢▢▢
+------ [6] EDUC -----
+acadm		▣▢▢▢ ▢▢▢▢
+arts 		▣▣▣▣ ▢▢▢▢
+mystr		▣▢▢▢ ▢▢▢▢
+------ [7] FGHT -----
+bspd 		▣▣▣▣ ▢▢▢▢
+brawl		▣▣▣▢ ▢▢▢▢
+guns 		▢▢▢▢ ▢▢▢▢
+------ [1] PHYS -----
+agilt		▢▢▢▢ ▢▢▢▢
+endur		▣●●▢ ▢▢▢▢
+muscl		●●▢▢ ▢▢▢▢
+------ [3] TECH -----
+hardw		▢▢▢▢ ▢▢▢▢
+pilot		◈▢▢▢ ▢▢▢▢ 		[exp=1]
+softw		▣▣▣▢ ▢▢▢▢
+------ [5] WILL -----
+grit 		◈▢▢▢ ▢▢▢▢ 		[exp=1]
+intim		▣▣▣▣ ▢▢▢▢
+psych		▣◈▢▢ ▢▢▢▢ 		[exp=1]
+------ [4] WITS -----
+drive		▣▣◈▢ ▢▢▢▢ 		[exp=1]
+percp		▣▣●● ◈◈▢▢ 		[exp=5]
+stlth		●●●● ◈▢▢▢ 		[exp=1]

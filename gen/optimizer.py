@@ -141,10 +141,10 @@ class Z3CharGen:
 
 
             pb = self.skills_pb[sk] = z3.Int(sk.value+":PB")
-            self.cstr(z3.And(self.skills_pb[sk] >= 0, self.skills_pb[sk] <= 3))
+            self.cstr(z3.And(self.skills_pb[sk] >= 0, self.skills_pb[sk] <= 4))
 
             free = self.skills_free[sk] = z3.Int(sk.value+":FREE")
-            self.cstr(z3.And(self.skills_free[sk] >= 0, self.skills_free[sk] + self.skills_pb[sk] <= 6))
+            self.cstr(z3.And(self.skills_free[sk] >= 0, self.skills_free[sk] + self.skills_pb[sk] <= 4))
 
             exp = self.skills_exp[sk] = z3.Int(sk.value+":EXP")
             self.cstr(z3.And(self.skills_exp[sk] >= 0, self.skills_exp[sk] <= 8))
@@ -161,6 +161,8 @@ class Z3CharGen:
             self.skill_classes[sk] = z3.Int(sk.value)
             self.cstr(z3.And(self.skill_classes[sk] >= 1,self.skill_classes[sk] <= 7))
             self.cstr(self.skill_classes[sk]==sum(map(lambda skill: self.skills_pb[skill], sk.skills())))
+
+        self.cstr(sum(self.skills_free.values()) == self.skill_points)
 
         for i in range(1,8):
             self.cstr(exactly_one(self.skill_classes.values(), i))
