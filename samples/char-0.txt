@@ -1,0 +1,56 @@
+
+==== LEGEND ===
+[exp=#]: the amount of experience points spent on skill or intelligence.
+▣: basic intelligence/skill point allocation.
+●: skill point allocation done with 10 free points.
+◈: intelligence/skill point allocations achieved with experience points.
+▢: unallocated
+===============
+
+name: Louise Sullivan
+
+trait 0 = Annoyingly Cheerful [exp=-1]
+trait 1 = Illegal Immigrant [exp=-3]
+trait 2 = Burned Spy [exp=2]
+
+-------------------------------
+is a novice? no
+total experience: 10 - (-2)  = 12
+-------------------------------
+=== INTELLIGENCES [exp=6] ===
+logic		 ▣▣ ◈▢▢ ▢▢▢ 		[exp=3]
+spatl		 ▣▣ ▣▣▣ ▢▢▢
+ling		 ▣▣ ▣▣▢ ▢▢▢
+kinth		 ▣▣ ▣▣▢ ▢▢▢
+music		 ▣▣ ◈▢▢ ▢▢▢ 		[exp=3]
+inter		 ▣▣ ▣▣▣ ▣▢▢
+intra		 ▣▣ ▣▣▣ ▢▢▢
+======== SKILLS [exp=6] =========
+------ [1] CHAR -----
+decpt		▣◈▢▢ ▢▢▢▢ 		[exp=1]
+empth		●●▢▢ ▢▢▢▢
+persu		●●●▢ ▢▢▢▢
+------ [3] EDUC -----
+acadm		▣●●● ▢▢▢▢
+arts 		▣▣◈▢ ▢▢▢▢ 		[exp=1]
+mystr		◈▢▢▢ ▢▢▢▢ 		[exp=1]
+------ [5] FGHT -----
+bspd 		▣▣●● ●▢▢▢
+brawl		●●●● ▢▢▢▢
+guns 		▣▣▣● ●▢▢▢
+------ [7] PHYS -----
+agilt		▣▣▢▢ ▢▢▢▢
+endur		▣▣●● ▢▢▢▢
+muscl		▣▣▣● ▢▢▢▢
+------ [4] TECH -----
+hardw		◈▢▢▢ ▢▢▢▢ 		[exp=1]
+pilot		▣▢▢▢ ▢▢▢▢
+softw		▣▣▣● ●▢▢▢
+------ [2] WILL -----
+grit 		▣▣◈▢ ▢▢▢▢ 		[exp=1]
+intim		●●●● ▢▢▢▢
+psych		●◈▢▢ ▢▢▢▢ 		[exp=1]
+------ [6] WITS -----
+drive		▣▣▣● ▢▢▢▢
+percp		▣▣▢▢ ▢▢▢▢
+stlth		▣●●▢ ▢▢▢▢

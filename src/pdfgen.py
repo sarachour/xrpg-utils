@@ -189,14 +189,13 @@ class PDFGenerator:
  
         for intel,val in character.intelligences.stats.items():
             for idx, intchb in enumerate(self.intelligence_checkboxes(intel)):
-                if(idx <= val-1):
+                if(idx <= val.value-1):
                     self.check(intchb)
 
-        for skcls,skills in character.skills.stats.items():
-            for skill,val in skills.items():
-                for idx, skchb  in enumerate(self.skill_checkboxes(skill)):
-                    if(idx <= val-1):
-                        self.check(skchb)
+        for skill,val in character.skills.stats.items():
+            for idx, skchb  in enumerate(self.skill_checkboxes(skill)):
+                if(idx <= val.value-1):
+                    self.check(skchb)
 
         for other,value in character.other.items():
             fld = self.stat_text_field(other)

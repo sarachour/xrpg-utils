@@ -34,8 +34,10 @@ class Z3CharGen:
         self.traits = {}
         self.gear = {}
 
-        self.int_points = z3.Int("POINT_BUY")
+        self.int_points = z3.Int("INT_POINTS")
+        self.skill_points = z3.Int("SKILL_POINTS")
         self.experience  = z3.Int("EXPERIENCE")
+        self.money = z3.Int("MONEY")
         self.cstrs = []
         self.user_cstrs = []
 
@@ -114,7 +116,7 @@ class Z3CharGen:
             #points bought with experience
             exp = self.ints_exp[intg] = z3.Int(intg.value+":EXP")
             self.cstr(z3.And(self.ints_exp[intg] >= 0, self.ints_exp[intg] <= 7))
-            self.cstr(z3.And(self.ints[intg] == pb+exp+1))
+            self.cstr(z3.And(self.ints[intg] == pb+exp+2))
 
 
             # each additional point costs as much as the point value
@@ -131,6 +133,7 @@ class Z3CharGen:
         
         self.skills = {}
         self.skills_pb = {}
+        self.skills_free = {}
         self.skills_exp = {}
         for sk in Skill:
             self.skills[sk] = z3.Int(sk.value)
@@ -140,10 +143,13 @@ class Z3CharGen:
             pb = self.skills_pb[sk] = z3.Int(sk.value+":PB")
             self.cstr(z3.And(self.skills_pb[sk] >= 0, self.skills_pb[sk] <= 3))
 
+            free = self.skills_free[sk] = z3.Int(sk.value+":FREE")
+            self.cstr(z3.And(self.skills_free[sk] >= 0, self.skills_free[sk] + self.skills_pb[sk] <= 6))
+
             exp = self.skills_exp[sk] = z3.Int(sk.value+":EXP")
             self.cstr(z3.And(self.skills_exp[sk] >= 0, self.skills_exp[sk] <= 8))
 
-            self.cstr(z3.And(self.skills[sk] == pb+exp))
+            self.cstr(z3.And(self.skills[sk] == pb+exp+free))
 
         # compute costs for kills
         for sk in Skill:
@@ -212,16 +218,34 @@ class Z3CharGen:
 
 def model_to_character(name,chgen,model):
     ch = Character(name)
+    ch.experience = model[chgen.experience].as_long()
     for intg in Intelligences:
         val = model[chgen.ints[intg]]
-        ch.intelligences.stats[intg] = val.as_long()
+        val_pb = model[chgen.ints_pb[intg]].as_long()
+        val_exp = model[chgen.ints_exp[intg]].as_long()
+        val_cost = model[chgen.costs_exp[intg]].as_long()
+
+        ch.intelligences.stats[intg].base_points = val_pb+2
+        ch.intelligences.stats[intg].exp_points = val_exp
+        ch.intelligences.stats[intg].experience_cost = val_cost
+        assert(ch.intelligences.stats[intg].value == val.as_long())
 
     for skcls in SkillClass:
         var = chgen.skill_classes[skcls]
         val = ch.skills.aptitudes[skcls] = model[var].as_long()
         for skill in skcls.skills():
             val = model[chgen.skills[skill]]
-            ch.skills.stats[skcls][skill] = val.as_long()
+            val_pb = model[chgen.skills_pb[skill]].as_long()
+            val_free = model[chgen.skills_free[skill]].as_long()
+            val_exp = model[chgen.skills_exp[skill]].as_long()
+            val_cost = model[chgen.costs_exp[skill]].as_long()
+            
+            ch.skills.stats[skill].base_points = val_pb 
+            ch.skills.stats[skill].free_points = val_free
+            ch.skills.stats[skill].exp_points = val_exp
+            ch.skills.stats[skill].experience_cost = val_cost 
+
+            assert(ch.skills.stats[skill].value == val.as_long())
 
     for trait in Traits:
         ch.traits[trait] = traitlib.get_trait(model[chgen.traits[trait]].as_long())
@@ -235,40 +259,7 @@ def model_to_character(name,chgen,model):
 
 
 
-def pretty_print_model(chgen,model):
-    print("==== Z3 MODEL ===")
 
-    background = traitlib.get_trait(model[chgen.background].as_long())
-    background_cost = model[chgen.costs_exp["background"]].as_long()
-    physical_trait = traitlib.get_trait(model[chgen.physical].as_long())
-    physical_cost = model[chgen.costs_exp["physical"]].as_long()
-    mental_trait = traitlib.get_trait(model[chgen.mental].as_long())
-    mental_cost = model[chgen.costs_exp["mental"]].as_long()
-
-    print("background: %s [%d]" % (background, background_cost))
-    print("physical: %s [%d]" % (physical_trait, physical_cost))
-    print("mental: %s [%d]" % (mental_trait, mental_cost))
-    for integ in Intelligences:
-        val = model[chgen.ints[integ]].as_long()
-        val_pb = model[chgen.ints_pb[integ]].as_long()
-        val_exp = model[chgen.ints_exp[integ]].as_long()
-        val_cost = model[chgen.costs_exp[integ]].as_long()
-        print("int %s = %d [pb=%d, exp=%d] cost=%d" 
-                % (integ.value,val,val_pb,val_exp,val_cost))
-
-    print("\n\n")
-    for skcls in SkillClass:
-        val = model[chgen.skill_classes[skcls]].as_long()
-        print("skill-class %s=%d" % (skcls.value, val))
-
-        for skill in skcls.skills():
-            val = model[chgen.skills[skill]].as_long()
-            val_pb = model[chgen.skills_pb[skill]].as_long()
-            val_exp = model[chgen.skills_exp[skill]].as_long()
-            val_cost = model[chgen.costs_exp[skill]].as_long()
-            print(" sk %s = %d [pb=%d, exp=%d] cost=%d" 
-                % (skill.value,val,val_pb,val_exp,val_cost))
-        print("")
 
 def negate_model(model):
     clauses = []
@@ -280,11 +271,13 @@ def negate_model(model):
 
 
 def generate_character(count=1,novice=False,constraints=[],experience=15):
-    pointbuy = 3*3 + 2*4
+    pointbuy = 14
+    freepoints = 10
     chgen = Z3CharGen()
 
     
     chgen.cstr(chgen.int_points == pointbuy)
+    chgen.cstr(chgen.skill_points == freepoints)
     chgen.cstr(chgen.experience == experience)
 
     # Set the random seed
@@ -313,6 +306,7 @@ def generate_character(count=1,novice=False,constraints=[],experience=15):
             model = solver.model()
             name = names.get_full_name()
             char = model_to_character(name,chgen,model)
+            char.novice = novice
             yield char
 
             solver.add(negate_model(model))

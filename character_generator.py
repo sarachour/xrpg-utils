@@ -2,6 +2,7 @@ from gen import optimizer as optimizer
 import sane.constraints as sanitylib
 from gen import charlang as charlib 
 from gen import charinterp as charinterp
+import src.loggen as loggen
 
 from src.pdfgen import PDFGenerator
 import argparse
@@ -32,6 +33,8 @@ def make_character(args):
         pdfgen.flatten_pdf()
         pdfgen.save(outfile_pdf,new_pdf)
         print("---> writing %s" % outfile_pdf)
+        loggen.write_character_log(outfile_txt,character)
+        print("---> writing %s" % outfile_txt)
 
 parser = argparse.ArgumentParser(
                     prog='secret project x character generator',
