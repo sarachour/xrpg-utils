@@ -12,4 +12,8 @@ The `character_generator.py` script generates random characters that satisfy a s
 
     python3 character_generator.py 3 --chargen-guide prefabs/random.cfg
 
-The 
+The generated characters will be in the `output/` directory. The above command will generate three characters at the following file location:
+
+    output/char-0.pdf
+    output/char-1.pdf
+    output/char-2.pdf
